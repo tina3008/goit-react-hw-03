@@ -26,14 +26,13 @@ export default function ContactList({ addContact }) {
   };
 
   const handleSubmit = (values, actions) => {
-    console.log(values);
     addContact({
       id: nanoid(),
       name: values.name,
       number: values.number,
     });
 
-   actions.resetForm();
+    actions.resetForm();
   };
 
   return (
@@ -44,7 +43,7 @@ export default function ContactList({ addContact }) {
     >
       <Form className={css.formStyle}>
         <div className={css.fialdStyle}>
-        <label htmlFor={nameFieldId}>Name</label>
+          <label htmlFor={nameFieldId}>Name</label>
           <Field
             className={css.field}
             id={nameFieldId}

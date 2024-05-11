@@ -1,13 +1,22 @@
- import { useState } from 'react'
+ import { useState, useEffect } from 'react'
  import startContacts from '../Components/contact.json'
  import ContactForm from "./ContactForm/ContactForm";
  import SearchBox from "./SearchBox/SearchBox";
  import ContactList from "./ContactList/ContactList";
 
 function App() {
-  const[contacts, setContacts] = useState(startContacts);
   const [filter, setFilter] = useState('');
 
+  const [contacts, setContacts] = useState(() => {
+    const storageContact = window.localStorage.getItem("saveContact");
+    return storageContact !== null
+      ? JSON.parse(storageContact)
+      : startContacts;
+  });
+
+  useEffect(() => {
+    window.localStorage.setItem("saveContact", JSON.stringify(contacts));
+  }, [contacts]);
 
   const onDelete = (contactId) => {
     setContacts((prevContacts) => {
@@ -22,7 +31,7 @@ function App() {
  
   const addContact =(newContact)=>{
     setContacts((prevContact)=>{
-      return[...prevContact, newContact]
+      return[...prevContact, newContact]     
     })
   }
 
