@@ -42,7 +42,7 @@ export default function ContactList({ addContact }) {
       onSubmit={handleSubmit}
       validationSchema={validationControl}
     >
-      <form className={css.formStyle}>
+      <Form className={css.formStyle}>
         <div className={css.fialdStyle}>
         <label htmlFor={nameFieldId}>Name</label>
           <Field
@@ -68,7 +68,7 @@ export default function ContactList({ addContact }) {
         <button type="submit" className={css.btn}>
           Add contact
         </button>
-      </form>
+      </Form>
     </Formik>
   );
 }
