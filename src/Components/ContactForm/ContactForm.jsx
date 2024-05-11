@@ -59,7 +59,7 @@ export default function ContactList({ addContact }) {
           <Field
             className={css.field}
             id={numberFieldId}
-            type="phone"
+            type="tel"
             name="number"
           />
           <ErrorMessage className={css.err} name="number" component="span" />
